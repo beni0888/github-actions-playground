@@ -13,6 +13,8 @@ jobs:
         id: meta
         with:
           images: beni0888/poc
+          flavor: |
+            latest=true
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
