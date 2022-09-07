@@ -41,11 +41,19 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           outputs: type=docker,dest=/tmp/beni0888-poc.tar
-          load: true
-      - name: list loaded images
-        run: docker images
-      - name: run image
-        run: docker run --rm beni0888/poc
+#      - name: list loaded images
+#        run: docker images
+#      - name: run image
+#        run: docker run --rm beni0888/poc
+      - name: Upload image
+        uses: actions/upload-artifact@v3
+        with:
+          name: beni0888_poc
+          path: /tmp/beni0888-poc.tar
+      - name: Load image
+        run: |
+          docker load --input /tmp/beni0888-poc.tar
+          docker image ls -a
       - name: push image
         run: |
           while read tag; do
