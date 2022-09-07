@@ -28,7 +28,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          outputs: type=docker,dest=/tmp/beni0888-poc.tar
+#          outputs: type=docker,dest=/tmp/beni0888-poc.tar
           load: true
       - name: list loaded images
         run: docker images
