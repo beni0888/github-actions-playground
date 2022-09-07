@@ -22,7 +22,7 @@ jobs:
             type=sha
       - name: list image tags
         run: |
-          echo ${{steps.meta.outputs.json}}
+          echo ${{steps.meta.outputs.tags}}
 #          for tag in ${{ fromJSON(steps.meta.outputs.json.tags) }}; do
 #            echo "- $tag"
 #          done;
