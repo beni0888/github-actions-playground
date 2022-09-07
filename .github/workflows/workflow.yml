@@ -32,9 +32,5 @@ jobs:
           load: true
       - name: list loaded images
         run: docker images
-      - run: |
-          echo ${{ steps.build.outputs.imageid }}
-          echo ${{ steps.build.outputs.digest }}
-          echo ${{ steps.build.outputs.metadata }}
       - name: push image
-        run: docker beni0888/poc
+        run: docker push beni0888/poc
