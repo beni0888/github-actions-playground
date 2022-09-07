@@ -47,4 +47,9 @@ jobs:
       - name: run image
         run: docker run --rm beni0888/poc
       - name: push image
-        run: docker push beni0888/poc
+        run: |
+          while read tag; do
+            docker push $tag
+          done <<EOF
+          ${{steps.meta.outputs.tags}}
+          EOF
