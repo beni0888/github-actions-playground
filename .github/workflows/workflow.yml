@@ -32,5 +32,7 @@ jobs:
           load: true
       - name: list loaded images
         run: docker images
+      - name: run image
+        run: docker run --rm beni0888/poc
       - name: push image
         run: docker push beni0888/poc
