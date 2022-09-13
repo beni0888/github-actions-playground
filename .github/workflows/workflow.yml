@@ -9,7 +9,7 @@ jobs:
   whoami:
     runs-on: ubuntu-latest
     steps:
-      run: whoami
+      - run: whoami
 
   docker_build_and_push:
     if: false
