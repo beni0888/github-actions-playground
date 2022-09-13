@@ -113,8 +113,8 @@ jobs:
     needs:
       - docker_build_and_push_2
     steps:
-      uses: actions/download-artifact@v3
-      id: download
-      with:
-        path: /tmp/images
-      run: echo ${{ steps.download.outputs.download-path }}
+      - uses: actions/download-artifact@v3
+        id: download
+        with:
+          path: /tmp/images
+      - run: echo ${{ steps.download.outputs.download-path }}
