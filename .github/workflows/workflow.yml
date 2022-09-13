@@ -107,3 +107,14 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           push: true
+
+  dependant_job:
+    runs-on: ubuntu-latest
+    needs:
+      - docker_build_and_push_2
+    steps:
+      uses: actions/download-artifact@v3
+      id: download
+      with:
+        path: /tmp/images
+      run: echo ${{ steps.download.outputs.download-path }}
