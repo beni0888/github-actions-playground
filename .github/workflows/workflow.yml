@@ -6,6 +6,11 @@ env:
   DOCKER_USERNAME: beni0888
 
 jobs:
+  whoami:
+    runs-on: ubuntu-latest
+    steps:
+      run: whoami
+
   docker_build_and_push:
     if: false
     runs-on: ubuntu-latest
