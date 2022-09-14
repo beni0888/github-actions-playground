@@ -4,6 +4,7 @@ on:
 
 env:
   DOCKER_USERNAME: beni0888
+  IMG_TAG: foo
 
 jobs:
   whoami:
@@ -75,10 +76,8 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=ref,event=branch
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
             type=sha
+            type=raw,value=${IMG_TAG}
       - name: list image tags
         run: |
           while read tag; do
