@@ -69,6 +69,10 @@ jobs:
   docker_build_and_push_2:
     runs-on: ubuntu-latest
     steps:
+      - name: "setup img tag"
+        id: setup
+        run: |
+          echo "::set-output name=img_tag::${IMG_TAG}"
       - uses: docker/metadata-action@v4
         id: meta
         with:
@@ -77,7 +81,7 @@ jobs:
             latest=true
           tags: |
             type=sha
-            type=raw,value=${IMG_TAG}
+            type=raw,value=${{steps.setup.outputs.img_tag}}
       - name: list image tags
         run: |
           while read tag; do
