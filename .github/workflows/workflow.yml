@@ -7,6 +7,14 @@ env:
   IMG_TAG: foo
 
 jobs:
+  calling_script:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./scripts/foo.sh
+      - run: echo "Printing line after script execution on failure"
+        if: failure()
+      - run: echo "final step"
+
   whoami:
     runs-on: ubuntu-latest
     steps:
