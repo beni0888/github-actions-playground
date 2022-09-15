@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: "a failing step"
+        run: exit 1
       - run: |
           if scripts/foo.sh; then
             echo "::notice ::Test success"
@@ -20,7 +22,8 @@ jobs:
             echo "export TEST_RESULT=$?" >> $GITHUB_ENV
           fi
       - run: echo "Printing line after script execution on failure"
-        if: env.TEST_RESULT == 1
+        name: "execute on failure"
+        if: failure()
       - run: echo "final step"
 
   whoami:
