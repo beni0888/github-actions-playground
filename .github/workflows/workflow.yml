@@ -25,7 +25,7 @@ jobs:
         name: "execute on failure"
         if: failure() && env.TEST_RESULT != 0
       - run: echo "final step"
-        if: always() and env.TEST_RESULT == 0 || env.TEST_RESULT == 1
+        if: always() && env.TEST_RESULT == 0 || env.TEST_RESULT == 1
 
   whoami:
     runs-on: ubuntu-latest
