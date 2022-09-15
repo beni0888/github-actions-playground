@@ -23,7 +23,7 @@ jobs:
         name: "execute on failure"
         if: failure() && env.TEST_RESULT != 0
       - run: echo "final step"
-        if: success() || failure()
+        if: always()
 
   whoami:
     runs-on: ubuntu-latest
