@@ -5,6 +5,7 @@ on:
 env:
   DOCKER_USERNAME: beni0888
   IMG_TAG: foo
+  SCRIPT_SUCCESS: 1
 
 jobs:
   calling_script:
