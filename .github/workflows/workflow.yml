@@ -12,13 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-        if ./scripts/foo.sh; then
-          echo "::notice ::Test success"
-          echo "export TEST_RESULT=$?" >> $GITHUB_ENV
-        else
-          echo "::notice ::Test failed"
-          echo "export TEST_RESULT=$?" >> $GITHUB_ENV
-        fi
+          if scripts/foo.sh; then
+            echo "::notice ::Test success"
+            echo "export TEST_RESULT=$?" >> $GITHUB_ENV
+          else
+            echo "::notice ::Test failed"
+            echo "export TEST_RESULT=$?" >> $GITHUB_ENV
+          fi
       - run: echo "Printing line after script execution on failure"
         if: failure()
       - run: echo "final step"
