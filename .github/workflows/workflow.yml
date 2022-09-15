@@ -12,14 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          if scripts/foo.sh; then
-            echo "::info ::Test success"
-            echo "export TEST_RESULT=$?" >> $GITHUB_ENV
-          else
-            echo "::error ::Test failed"
-            echo "TEST_RESULT=$?" >> $GITHUB_ENV
-          fi
-          exit $?
+          scripts/foo.sh;
+          echo "export TEST_RESULT=$?" >> $GITHUB_ENV
+          exit ${TEST_RESULT}
       - run: echo "Printing line after script execution on failure"
         name: "execute on failure"
         if: failure() && env.TEST_RESULT != 0
