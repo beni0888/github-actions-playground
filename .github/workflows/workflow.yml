@@ -16,11 +16,11 @@ jobs:
             echo "::notice ::Test success"
             echo "export TEST_RESULT=$?" >> $GITHUB_ENV
           else
-            echo "::notice ::Test failed"
+            echo "::error ::Test failed"
             echo "export TEST_RESULT=$?" >> $GITHUB_ENV
           fi
       - run: echo "Printing line after script execution on failure"
-        if: env.TEST_RESULT != 0
+        if: env.TEST_RESULT == 1
       - run: echo "final step"
 
   whoami:
