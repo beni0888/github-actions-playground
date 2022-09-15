@@ -10,6 +10,7 @@ jobs:
   calling_script:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - run: ./scripts/foo.sh
       - run: echo "Printing line after script execution on failure"
         if: failure()
