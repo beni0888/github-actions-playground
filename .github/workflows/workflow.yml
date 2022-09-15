@@ -19,6 +19,7 @@ jobs:
             echo "TEST_RESULT=$?" >> $GITHUB_ENV
             echo "::error ::Test failed"
           fi
+          echo "::info ::${TEST_RESULT}"
           exit ${TEST_RESULT}
       - run: echo "Printing line after script execution on failure"
         name: "execute on failure"
