@@ -128,7 +128,7 @@ jobs:
     steps:
       - run: gpg --version
       - run: |
-          echo ${{ secrets.SO_SECRET }} > /tmp/secret.txt
+          echo "${{ secrets.SO_SECRET }}" > /tmp/secret.txt
       - uses: actions/upload-artifact@v3
         with:
           name: secret
