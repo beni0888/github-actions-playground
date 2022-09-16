@@ -146,3 +146,8 @@ jobs:
         with:
           path: /tmp/images
       - run: echo ${{ steps.download.outputs.download-path }}
+
+  test_gpg:
+    runs-on: ubuntu-latest
+    steps:
+      run: gpg --version
