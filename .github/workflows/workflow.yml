@@ -8,29 +8,6 @@ env:
   SCRIPT_SUCCESS: 1
 
 jobs:
-  calling_script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          if scripts/foo.sh; then
-            echo "TEST_RESULT=0" >> $GITHUB_ENV
-            exit 0
-          else
-            echo "TEST_RESULT=1" >> $GITHUB_ENV
-            exit 1
-          fi
-        if: false
-      - run: echo "Printing line after script execution on failure"
-        name: "execute on failure"
-        if: failure() && env.TEST_RESULT != 0
-      - run: echo "final step"
-        if: always() && env.TEST_RESULT == 0 || env.TEST_RESULT == 1
-
-  whoami:
-    runs-on: ubuntu-latest
-    steps:
-      - run: whoami
 
   docker_build_and_push:
     if: false
@@ -87,6 +64,7 @@ jobs:
 
 
   docker_build_and_push_2:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: "setup img tag"
@@ -135,7 +113,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           push: true
-
   dependant_job:
     runs-on: ubuntu-latest
     needs:
@@ -146,8 +123,13 @@ jobs:
         with:
           path: /tmp/images
       - run: echo ${{ steps.download.outputs.download-path }}
-
   test_gpg:
     runs-on: ubuntu-latest
     steps:
       - run: gpg --version
+      - run: |
+          echo ${{ secrets.SO_SECRET }} > /tmp/secret.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: secret
+          path: /tmp/secret.txt
