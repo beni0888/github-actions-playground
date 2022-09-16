@@ -150,4 +150,4 @@ jobs:
   test_gpg:
     runs-on: ubuntu-latest
     steps:
-      run: gpg --version
+      - run: gpg --version
