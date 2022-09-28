@@ -64,9 +64,10 @@ jobs:
 
 
   docker_build_and_push_2:
-    if: false
     runs-on: ubuntu-latest
     steps:
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
       - name: "setup img tag"
         id: setup
         run: |
