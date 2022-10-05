@@ -9,3 +9,5 @@ jobs:
       - run: echo "Hello, this is the first job in the workflow"
   next_steps:
     uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      message: "Hello from a reusable workflow!"
