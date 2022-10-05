@@ -67,8 +67,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "just echoing"
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
+#      - name: Setup upterm session
+#        uses: lhotari/action-upterm@v1
       - name: "setup img tag"
         id: setup
         run: |
