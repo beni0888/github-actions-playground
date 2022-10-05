@@ -12,4 +12,4 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ inputs.message }}"
+      - run: echo "${{ github.event.inputs.message }}"
