@@ -11,7 +11,7 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ input.message }}
+      - run: echo ${{ inputs.message }}
   say_bye:
     runs-on: ubuntu-latest
     steps:
