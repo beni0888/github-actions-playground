@@ -3,7 +3,6 @@ on:
   workflow_call:
     inputs:
       message:
-        required: true
         type: string
         default: "Hello world!"
 
