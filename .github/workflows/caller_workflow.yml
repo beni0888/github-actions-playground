@@ -1,0 +1,11 @@
+name: "Compose workflow"
+on:
+  push:
+
+jobs:
+  first_step:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, this is the first job in the workflow"
+  next_steps:
+    uses: ./.github/workflows/reusable-workflow.yml
