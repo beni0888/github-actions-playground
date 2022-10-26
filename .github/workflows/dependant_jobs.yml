@@ -32,7 +32,7 @@ jobs:
     needs:
       - setup
       - intermediate_job
-    if: needs.setup.outputs.FOO == 'foo'
+#    if: needs.setup.outputs.FOO == 'foo'
     steps:
       - run: |
           echo "This job depends on the intermediate_job, but its execution depends on an output from the setup job"
