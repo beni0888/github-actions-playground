@@ -17,7 +17,7 @@ jobs:
 
   consuming_outputs:
     runs-on: ubuntu-latest
-    requires:
+    needs:
       - outputs_from_env_vars
     steps:
       - run: |
