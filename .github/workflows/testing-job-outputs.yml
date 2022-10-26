@@ -12,7 +12,8 @@ jobs:
     outputs:
       FOO: ${FOO}
       BAR: ${BAR}
-    steps: []
+    steps:
+      - run: 
 
   consuming_outputs:
     runs-on: ubuntu-latest
