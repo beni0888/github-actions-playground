@@ -34,4 +34,7 @@ jobs:
       - intermediate_job
     if: needs.setup.outputs.FOO == 'foo'
     steps:
-      - run: echo "This job depends on the intermediate_job, but its execution depends on an output from the setup job"
+      - run: |
+          echo "This job depends on the intermediate_job, but its execution depends on an output from the setup job"
+          echo "setup.FOO: ${{ needs.setup.outputs.FOO }}"
+          echo "setup.BAR: ${{ needs.setup.outputs.BAR }}"
