@@ -12,6 +12,7 @@ jobs:
   job2:
     needs:
       - job1
+    runs-on: ubuntu-latest
     steps:
       - run: |
           echo "this job depends on the first one and consumes its output"
@@ -19,5 +20,4 @@ jobs:
   job3:
     needs:
       - job2
-    runs-on: ubuntu-latest
     uses: ./.github/workflows/reusable-workflow.yml
