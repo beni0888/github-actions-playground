@@ -1,0 +1,14 @@
+name: "Testing Outputs"
+on:
+  push:
+
+env:
+  FOO: foo
+  BAR: bar
+
+jobs:
+  outputs_from_env_vars:
+    runs-on: ubuntu-latest
+    outputs:
+      FOO: ${FOO}
+      BAR: ${BAR}
