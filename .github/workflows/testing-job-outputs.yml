@@ -14,3 +14,12 @@ jobs:
       BAR: ${BAR}
     steps:
       - run: echo "done"
+
+  consuming_outputs:
+    runs-on: ubuntu-latest
+    requires:
+      - outputs_from_env_vars
+    steps:
+      - run: |
+          echo "FOO: ${{ needs.outputs_from_env_vars.outputs.FOO }}"
+          echo "BAR: ${{ needs.outputs_from_env_vars.outputs.BAR }}"
