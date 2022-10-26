@@ -22,7 +22,10 @@ jobs:
     outputs:
       BUZZ: buzz
     steps:
-      - run: echo "This is an intermediate job that depends on setup"
+      - run: |
+          echo "This is an intermediate job that depends on setup"
+          echo "setup.FOO: ${{ needs.setup.outputs.FOO }}"
+          echo "setup.BAR: ${{ needs.setup.outputs.BAR }}"
 
   dependant_job:
     runs-on: ubuntu-latest
