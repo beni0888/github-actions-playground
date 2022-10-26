@@ -3,8 +3,8 @@ on:
   push:
 
 env:
-  FOO: foo
-  BAR: bar
+  FOO: "hola"
+  BAR: "que ase"
 
 jobs:
   outputs_from_env_vars:
