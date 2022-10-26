@@ -12,3 +12,5 @@ jobs:
     outputs:
       FOO: ${FOO}
       BAR: ${BAR}
+  steps:
+    - run: echo "done"
