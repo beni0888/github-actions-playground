@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is the first job in the workflow"
+      - name: Log the secret
+        run: |
+          echo "GCLOUD KEY:"
+          echo "${{secrets.SAMPLE_GCLOUD_KEY}}" 
 
   reusable_workflow:
     uses: ./.github/workflows/reusable-workflow.yml
