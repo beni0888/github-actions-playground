@@ -18,6 +18,8 @@ jobs:
           echo "JSON doc:"
           echo "${{ inputs.json_doc }}"
       - uses: lhotari/action-upterm@v1
+        env:
+          JSON_DOC: ${{secrets.json_doc}}
   show_message:
     runs-on: ubuntu-latest
     steps:
