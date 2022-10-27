@@ -5,13 +5,19 @@ on:
       message:
         type: string
         default: "Hello world!"
+    secrets:
+      json_doc:
+        required: true
 
 jobs:
-  say_hello:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "message: ${{ inputs.message }}"
+          echo "JSON doc:"
+          echo "${{ inputs.json_doc }}"
+  say_message:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ inputs.message }}
-  say_bye:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Bye folks!"
