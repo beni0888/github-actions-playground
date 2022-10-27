@@ -12,9 +12,9 @@ jobs:
           echo "GCLOUD KEY:"
           echo "${{secrets.SAMPLE_GCLOUD_KEY}}" 
 
-  reusable_workflow:
-    uses: ./.github/workflows/reusable-workflow.yml
-    with:
-      message: "Testing secret leak"
-    secrets:
-      json_doc: ${{secrets.SAMPLE_GCLOUD_KEY}}
+#  reusable_workflow:
+#    uses: ./.github/workflows/reusable-workflow.yml
+#    with:
+#      message: "Testing secret leak"
+#    secrets:
+#      json_doc: ${{secrets.SAMPLE_GCLOUD_KEY}}
