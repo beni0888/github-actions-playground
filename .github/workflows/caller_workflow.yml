@@ -3,10 +3,11 @@ on:
   push:
 
 jobs:
-  first_step:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, this is the first job in the workflow"
+      - run: echo "This is the first job in the workflow"
+
   reusable_workflow:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
