@@ -1,4 +1,4 @@
-name: "Compose workflow"
+name: "Secret Leak POC"
 on:
   push:
 
@@ -6,15 +6,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "This is the first job in the workflow"
-      - name: Log the secret
-        run: |
+      - run: |
           echo "GCLOUD KEY:"
           echo "${{secrets.SAMPLE_GCLOUD_KEY}}" 
-
-#  reusable_workflow:
-#    uses: ./.github/workflows/reusable-workflow.yml
-#    with:
-#      message: "Testing secret leak"
-#    secrets:
-#      json_doc: ${{secrets.SAMPLE_GCLOUD_KEY}}
