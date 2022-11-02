@@ -1,0 +1,8 @@
+name: "Reusable with secrets"
+
+on.push:
+
+jobs:
+  main:
+    uses: ./.github/workflows/reusable-with-secrets/reusable.yml
+    secrets: inherit
