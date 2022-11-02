@@ -11,5 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Secret SO_SECRET:"
-#          echo ${{secrets.SO_SECRET }} | sed 's/./& /g'
+          echo "Secret SO_SECRET: ${{secrets.SO_SECRET }}"
