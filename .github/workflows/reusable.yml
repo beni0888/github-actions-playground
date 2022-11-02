@@ -1,10 +1,6 @@
 
 on:
   workflow_call:
-    secrets:
-      SO_SECRET:
-        required: false
-
 
 jobs:
   print_secret:
