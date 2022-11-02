@@ -1,6 +1,7 @@
 name: "Reusable with secrets"
 
-on.push:
+on:
+  push:
 
 jobs:
   main:

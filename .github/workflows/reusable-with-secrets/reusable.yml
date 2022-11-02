@@ -1,5 +1,6 @@
 
-on.workflow_call:
+on:
+  workflow_call:
 
 jobs:
   print_secret:
