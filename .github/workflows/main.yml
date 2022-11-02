@@ -5,5 +5,5 @@ on:
 
 jobs:
   main:
-    uses: ./.github/workflows/reusable-with-secrets/reusable.yml
+    uses: ./.github/workflows/reusable.yml
     secrets: inherit
