@@ -17,5 +17,5 @@ jobs:
         - var1: foo
           var2: 2
   steps:
-    run: |
-      echo "var1: ${{matrix.var1}} - ${{matrix.var2}}"
+    - run: |
+        echo "var1: ${{matrix.var1}} - ${{matrix.var2}}"
