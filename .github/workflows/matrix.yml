@@ -6,16 +6,16 @@ on:
 jobs:
   matrix:
     runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      var1:
-        - foo
-        - bar
-      var2:
-        - 1
-      include:
-        - var1: foo
-          var2: 2
-  steps:
-    - run: echo "hello"
-    - run: echo "${{matrix.var1}} - ${{matrix.var2}}"
+    strategy:
+      matrix:
+        var1:
+          - foo
+          - bar
+        var2:
+          - 1
+        include:
+          - var1: foo
+            var2: 2
+    steps:
+      - run: echo "hello"
+      - run: echo "${{matrix.var1}} - ${{matrix.var2}}"
