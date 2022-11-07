@@ -16,5 +16,8 @@ jobs:
         include:
           - var1: foo
             var2: 2
+        exclude:
+          - var1: foo
+            var2: 1
     steps:
       - run: echo "${{matrix.var1}} - ${{matrix.var2}}"
