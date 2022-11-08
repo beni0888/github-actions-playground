@@ -1,0 +1,7 @@
+name: "Compose workflow"
+on:
+  push:
+
+jobs:
+  reusable_workflow:
+    uses: ./.github/workflows/reusable/reusable-workflow.yml
