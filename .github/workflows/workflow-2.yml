@@ -12,7 +12,7 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "job1"
+      - run: exit 1
 
   status-check:
     if: always()
