@@ -10,6 +10,7 @@ jobs:
   result:
     needs: call_reusable
     runs-on: ubuntu latest
+    if: always()
     steps:
       - name: "Check result"
         if: needs.call_reusable.result != 'success'
