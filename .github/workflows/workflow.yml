@@ -21,5 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
+      - run: |
+          echo "needs.matrix.status: ${{needs.matrix.status}}"
       - if: ${{ needs.matrix.status != 'success' }}
         run: exit 1
