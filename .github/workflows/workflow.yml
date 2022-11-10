@@ -22,6 +22,6 @@ jobs:
     if: always()
     steps:
       - run: |
-          echo "needs.matrix.status: ${{needs.matrix.status}}"
-      - if: ${{ needs.matrix.status != 'success' }}
+          echo "needs.matrix.result: ${{needs.matrix.result}}"
+      - if: ${{ needs.matrix.result != 'success' }}
         run: exit 1
