@@ -11,6 +11,11 @@ on:
           - no
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo ${{ github.event.inputs.run_subworkflow }}
+
   call_reusable:
     if: github.event.inputs.run_subworkflow == 'yes'
     uses: ./.github/workflows/reusable-workflow.yml
