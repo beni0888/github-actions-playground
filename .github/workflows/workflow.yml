@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foo: [1, 3]
+        foo: [1, 2, 3]
     steps:
       - name: Fail if even
         run: |
