@@ -1,13 +1,11 @@
 name: "Reusable workflow with status check"
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       run_subworkflow:
         type: choice
         description: Call subworkflow
-        default: yes
         options:
           - yes
           - no
