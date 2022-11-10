@@ -11,8 +11,10 @@ jobs:
         foo: [1, 2, 3]
     steps:
       - name: Fail if even
-        if: ${{ matrix.foo }} % 2 == 0
-        run: exit 1
+        run: |
+          if (( ${{matrix.foo}} % 2 == 0 )); then          
+            exit 1
+          fi
 
   status-check:
     needs: matrix
