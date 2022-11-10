@@ -12,13 +12,13 @@ on:
 
 jobs:
   call_reusable:
-    if: inputs.run_subworkflow == 'yes'
+    if: github.event.inputs.run_subworkflow == 'yes'
     uses: ./.github/workflows/reusable-workflow.yml
 
   result:
     needs: call_reusable
     runs-on: ubuntu latest
-    if: inputs.run_subworkflow == 'yes'
+    if: github.event.inputs.run_subworkflow == 'yes'
     steps:
       - name: "Check result"
         if: needs.call_reusable.result != 'success'
