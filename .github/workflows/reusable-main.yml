@@ -7,8 +7,8 @@ on:
         type: choice
         description: Call subworkflow
         options:
-          - si
-          - no
+          - "yes"
+          - "no"
 
 jobs:
   debug:
