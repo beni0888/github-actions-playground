@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Call action
-        uses: ./actions/local-action
+        uses: ./.github/actions/local-action
         with:
           who-to-greet: jesus
