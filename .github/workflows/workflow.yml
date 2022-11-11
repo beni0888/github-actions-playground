@@ -1,27 +1,12 @@
-name: "Matrix status check"
+name: "Custom Action"
 on:
   push: 
 
 jobs:
-  matrix:
+  main:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        foo: [1, 2, 3]
     steps:
-      - name: Fail if even
-        run: |
-          if (( ${{matrix.foo}} % 2 == 0 )); then          
-            exit 1
-          fi
-
-  status-check:
-    needs: matrix
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - run: |
-          echo "needs.matrix.result: ${{needs.matrix.result}}"
-      - if: ${{ needs.matrix.result != 'success' }}
-        run: exit 1
+      - name: Call action
+        uses: ./.github/custom-action.yml
+        with:
+          who-to-greet: jesus
