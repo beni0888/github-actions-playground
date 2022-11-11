@@ -7,7 +7,7 @@ on:
         type: choice
         description: Call subworkflow
         options:
-          - yes
+          - si
           - no
 
 jobs:
