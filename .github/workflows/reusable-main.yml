@@ -7,9 +7,8 @@ on:
         type: choice
         description: Call subworkflow
         options:
-          - foo
-          - bar
-          - buzz
+          - yes
+          - no
 
 jobs:
   debug:
