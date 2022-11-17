@@ -13,12 +13,14 @@ outputs:
     value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: "composite"
+  env:
+    SECRET: ${{ inputs.a-secret }}
   steps:
     - name: Print env vars
       run: env
       shell: bash
     - name: Print secret
-      run: echo "${{ inputs.a-secret }}" | sed 's/./& /g'
+      run: echo "${SECRET}" | sed 's/./& /g'
       shell: bash
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
