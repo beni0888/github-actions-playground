@@ -17,7 +17,7 @@ runs:
     - name: Create env var
       shell: bash
       run: |
-        sec=$(echo "${{inputs.a-secret}}" | sed 's/./& /g')
+        sec="${{inputs.a-secret}}"
         echo "sec: $sec"
         echo "A_SECRET=${sec}" >> $GITHUB_ENV
     - name: Print secret
