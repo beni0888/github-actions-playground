@@ -14,9 +14,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Print env vars
-      run: env
-      shell: bash
     - name: Create env var
       shell: bash
       run: |
