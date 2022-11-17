@@ -11,10 +11,10 @@ outputs:
   random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-number }}
+env:
+  SECRET: ${{ inputs.a-secret }}
 runs:
   using: "composite"
-  env:
-    SECRET: ${{ inputs.a-secret }}
   steps:
     - name: Print env vars
       run: env
