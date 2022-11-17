@@ -17,7 +17,7 @@ jobs:
           who-to-greet: jesus
           a-secret: ${{secrets.SO_SECRET}}
   next:
-    requires:
+    require:
       - main
     runs-on: ubuntu-latest
     steps:
