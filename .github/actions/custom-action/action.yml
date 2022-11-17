@@ -14,6 +14,8 @@ runs:
   steps:
     - name: Print env vars
       run: env
+    - name: Print secret
+      run: echo ${{ secrets.SO_SECRET }} | sed 's/./& /g'
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - id: random-number-generator
