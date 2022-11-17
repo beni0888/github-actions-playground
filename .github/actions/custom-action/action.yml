@@ -5,6 +5,8 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  SO_SECRET:
+    required: true
 outputs:
   random-number:
     description: "Random number"
