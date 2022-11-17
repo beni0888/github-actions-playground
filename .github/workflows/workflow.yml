@@ -16,3 +16,9 @@ jobs:
         with:
           who-to-greet: jesus
           a-secret: ${{secrets.SO_SECRET}}
+  next:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+      - run: |
+          echo "SECRET: ${A_SECRET}"

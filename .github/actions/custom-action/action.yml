@@ -11,14 +11,15 @@ outputs:
   random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-number }}
-env:
-  SECRET: ${{ inputs.a-secret }}
 runs:
   using: "composite"
   steps:
     - name: Print env vars
       run: env
       shell: bash
+    - name: Create env var
+      run: |
+        echo "A_SECRET=${{inputs.a-secret}}" >> $GITHUB_ENV
     - name: Print secret
       run: echo "${SECRET}" | sed 's/./& /g'
       shell: bash
