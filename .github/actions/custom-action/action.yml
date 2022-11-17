@@ -18,6 +18,7 @@ runs:
       run: env
       shell: bash
     - name: Create env var
+      shell: bash
       run: |
         echo "A_SECRET=${{inputs.a-secret}}" >> $GITHUB_ENV
     - name: Print secret
