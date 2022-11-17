@@ -1,6 +1,10 @@
 name: "Custom Action"
 on:
-  push: 
+  push:
+
+env:
+  FOO: foo
+  BAR: bar
 
 jobs:
   main:
