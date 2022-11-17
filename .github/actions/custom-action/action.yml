@@ -12,6 +12,8 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Print env vars
+      run: env
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
     - id: random-number-generator
