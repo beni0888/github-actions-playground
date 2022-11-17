@@ -5,7 +5,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  SO_SECRET:
+  a-secret:
     required: true
 outputs:
   random-number:
@@ -16,12 +16,8 @@ runs:
   steps:
     - name: Print env vars
       run: env
-      shell: bash
     - name: Print secret
-      run: echo "${{ secrets.SO_SECRET }}" | sed 's/./& /g'
-      shell: bash
+      run: echo "${{ inputs.a-secret }}" | sed 's/./& /g'
     - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
     - id: random-number-generator
       run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-      shell: bash
