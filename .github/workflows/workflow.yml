@@ -23,4 +23,4 @@ jobs:
     steps:
       - run: env
       - run: |
-          echo "SECRET: ${A_SECRET}"
+          echo "SECRET: ${A_SECRET}" 
