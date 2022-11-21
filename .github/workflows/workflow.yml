@@ -1,27 +1,19 @@
-name: "Matrix status check"
+name: "Dynamic env vars"
 on:
   push: 
 
-jobs:
-  matrix:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        foo: [1, 2, 3]
-    steps:
-      - name: Fail if even
-        run: |
-          if (( ${{matrix.foo}} % 2 == 0 )); then          
-            exit 1
-          fi
+env:
+  FOO: foo
 
-  status-check:
-    needs: matrix
+jobs:
+  job1:
     runs-on: ubuntu-latest
-    if: always()
     steps:
-      - run: |
-          echo "needs.matrix.result: ${{needs.matrix.result}}"
-      - if: ${{ needs.matrix.result != 'success' }}
-        run: exit 1
+      - run: echo "BAR=bar" >> $GITHUB_ENV
+        name: Adds a new env var
+      - run: env
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
