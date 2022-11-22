@@ -1,4 +1,4 @@
-name: "Multiple jobs status check"
+name: "Tag triggered Workflow"
 
 on:
   push:
