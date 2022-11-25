@@ -11,3 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello World!"
+      - run: |
+          set -eu
+          if [[ "${GITHUB_REF_NAME}" == main ]]; then
+            echo "running_on_main=true"
+          else
+            echo "running_on_main=false"
+          fi
+
+          if [[ ${GITHUB_REF_TYPE} == "tag" && ${GITHUB_REF_NAME} =~ v[0-9]+\.[0-9]+\.[0-9]+(\-.+)? ]]; then
+            echo "running_on_tag=true"
+          else
+            echo "running_on_tag=false"
+          fi
