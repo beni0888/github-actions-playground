@@ -12,6 +12,7 @@ on:
 jobs:
   hello-world:
     runs-on: ubuntu-latest
+    if: ${{ inputs.run-hello == true }}
     steps:
       - run: |
           echo "hello world"
