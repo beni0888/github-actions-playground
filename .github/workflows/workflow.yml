@@ -19,7 +19,7 @@ jobs:
   final:
     needs: hello-world
     runs-on: ubuntu-latest
-    if: ${{ inputs.run-hello == 'true' || needs.hello-world.result == 'skipped' }}
+    if: ${{ inputs.run-hello == true || needs.hello-world.result == 'skipped' }}
     steps:
       - run: |
           echo "Final job run"
