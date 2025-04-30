@@ -1,25 +1,25 @@
-name: "Conditionality"
+name: Conditional Workflow
 
 on:
   workflow_dispatch:
     inputs:
       run-hello:
-        description: 'Run the hello world job'
-        default: 'true'
-        type: string
+        description: 'Run hello-world job'
+        required: true
+        default: 'false'
 
 jobs:
   hello-world:
     runs-on: ubuntu-latest
-    if: ${{ inputs.run-hello == 'true' }}
+    if: ${{ inputs.run-hello == 'true' }}  # Runs only if run-hello is true
     steps:
-      - run: |
-          echo "hello world"
+      - name: Hello World step
+        run: echo "Hello, World!"
 
   final:
-    needs: hello-world
     runs-on: ubuntu-latest
-    if: ${{ inputs.run-hello == 'true' || needs.hello-world.result == 'skipped' }}
+    needs: hello-world  # Depends on hello-world, but will run even if hello-world is skipped
+    if: ${{ needs.hello-world.result == 'skipped' || inputs.run-hello == 'false' }}  # Runs if hello-world is skipped or run-hello is false
     steps:
-      - run: |
-          echo "Final job run"
+      - name: Final step
+        run: echo "This is the final step!"
