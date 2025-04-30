@@ -1,7 +1,7 @@
 name: "Conditionality"
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       run-hello:
         description: 'Run the hello world job'
