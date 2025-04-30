@@ -1,18 +1,17 @@
 name: "Conditionality"
 
 on:
-  push:
   workflow_call:
     inputs:
       run-hello:
         description: 'Run the hello world job'
-        default: true
-        type: boolean
+        default: 'true'
+        type: string
 
 jobs:
   hello-world:
     runs-on: ubuntu-latest
-    if: ${{ inputs.run-hello == true }}
+    if: ${{ inputs.run-hello == 'true' }}
     steps:
       - run: |
           echo "hello world"
@@ -20,7 +19,7 @@ jobs:
   final:
     needs: hello-world
     runs-on: ubuntu-latest
-    if: ${{ inputs.run-hello == true || needs.hello-world.result == 'skipped' }}
+    if: ${{ inputs.run-hello == 'true' || needs.hello-world.result == 'skipped' }}
     steps:
       - run: |
           echo "Final job run"
